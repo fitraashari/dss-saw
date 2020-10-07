@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <div class="card shadow mb-4">
                 <div class="card-header font-weight-bold text-primary">Criterias</div>
 
@@ -28,7 +28,9 @@
                                 <td>{{$criteria->name}}</td>
                                 <td>{{$criteria->type}}</td>
                                 <td>{{$criteria->weight}}</td>
-                                <td><a href="/dashboard/criteria/{{$criteria->id}}/edit" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                <td>
+                                <a href="{{route('criteria.show',['id'=>$criteria->id])}}" class="btn btn-sm btn-primary"><i class="fas fa-th-list"></i></a>
+                                    <a href="/dashboard/criteria/{{$criteria->id}}/edit" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <form action="/dashboard/criteria/{{$criteria->id}}/delete" method="post" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
@@ -40,6 +42,45 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card shadow mb-4">
+                <div class="card-header font-weight-bold text-light bg-primary">
+                    Add New Criteria
+                </div>
+                <div class="card-body">
+                <form action="{{route('criteria.store')}}" method="POST">
+                @csrf
+                    <div class="form-group">
+                      <label for="criteria_code">Criteria Code</label>
+                      <input type="text" class="form-control" name="criteria_code" id="criteria_code" aria-describedby="criteria_codeHelp">
+                      <small id="criteria_codeHelp" class="form-text text-muted">Unique</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Criteria Name</label>
+                      <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="type">Criteria Type</label>
+                      <select name="type" class="form-control" id="type">
+                        <option value='Benefit'>Benefit</option>
+                        <option value='Cost'>Cost</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="weight">Criteria Weight</label>
+                      <select name="weight" class="form-control" id="weight">
+                        <option value='1'>(1) Tidak Penting</option>
+                        <option value='2'>(2) Lumayan Penting</option>
+                        <option value='3'>(3) Penting</option>
+                        <option value='4'>(4) Sangat Penting</option>
+                        <option value='5'>(5) Sangat Penting Sekali</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
                 </div>
             </div>
         </div>
