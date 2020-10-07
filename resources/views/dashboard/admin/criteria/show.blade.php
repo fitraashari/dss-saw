@@ -1,11 +1,16 @@
 @extends('dashboard.master')
 
 @section('content')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Sub Criteria</h1>
+  </div>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card shadow mb-4">
+            <div class="card shadow-sm mb-4">
             <div class="card-header font-weight-bold text-primary">
-            <a href="{{route('criteria')}}" class="btn btn-sm btn-primary"><i class="fas fa-arrow-left"></i></a> Sub Criteria {{$criteria->name}} [{{$criteria->type}}]</div>
+            <a href="{{route('criteria')}}" class="btn btn-sm btn-primary"><i class="fas fa-arrow-left"></i></a> 
+            <span class="float-right">List Sub Criteria {{$criteria->name}} [{{$criteria->type}}]</span>
+        </div>
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -43,7 +48,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card shadow mb-4">
+            <div class="card shadow-sm mb-4">
                 <div class="card-header font-weight-bold bg-primary text-light">
                     Add New Sub Criteria
                 </div>

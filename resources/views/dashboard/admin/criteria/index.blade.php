@@ -1,10 +1,13 @@
 @extends('dashboard.master')
 
 @section('content')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Criteria</h1>
+  </div>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card shadow mb-4">
-                <div class="card-header font-weight-bold text-primary">Criterias</div>
+            <div class="card shadow-sm mb-4">
+                <div class="card-header font-weight-bold text-primary">List Criteria</div>
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -46,7 +49,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card shadow mb-4">
+            <div class="card shadow-sm mb-4">
                 <div class="card-header font-weight-bold text-light bg-primary">
                     Add New Criteria
                 </div>

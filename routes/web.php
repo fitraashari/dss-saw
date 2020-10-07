@@ -31,4 +31,15 @@ Route::middleware(['auth.basic'])->prefix('dashboard')->group(function(){
     Route::delete('sub_criteria/{sub_criteria}/delete','SubCriteriaController@destroy')->name('sub_criteria.delete');
     Route::get('sub_criteria/{id}/edit','SubCriteriaController@edit')->name('sub_criteria.edit');
     Route::put('sub_criteria/{id}/update','SubCriteriaController@update')->name('sub_criteria.update');
+
+    Route::get('assessment','AssessmentController@index')->name('assessment');
+
+    Route::get('employe','EmployeController@index')->name('employe');
+    Route::get('employe/create','EmployeController@create')->name('employe.create');
+    Route::post('employe/store','EmployeController@store')->name('employe.store');
+    Route::get('employe/{id}','EmployeController@show')->name('employe.show');
+    Route::get('employe/{id}/edit','EmployeController@edit')->name('employe.edit');
+    Route::put('employe/{id}/update','EmployeController@update')->name('employe.update');
+    Route::delete('employe/{id}/delete','EmployeController@destroy')->name('employe.delete');
+
 });

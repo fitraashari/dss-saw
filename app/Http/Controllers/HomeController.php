@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Employe;
+use App\Criteria;
+use App\SubCriteria;
+use App\Assessment;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.admin.home');
+        $employe = Employe::get();
+        $employe = count($employe);
+
+        $criteria=Criteria::get();
+        $criteria = count($criteria);
+
+        $sub_criteria=SubCriteria::get();
+        $sub_criteria = count($sub_criteria);
+
+        return view('dashboard.admin.home',compact('criteria','sub_criteria','employe'));
     }
 }
