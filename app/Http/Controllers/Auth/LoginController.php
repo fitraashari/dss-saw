@@ -7,7 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Alert;
 class LoginController extends Controller
 {
     /*
@@ -46,9 +46,9 @@ class LoginController extends Controller
             'g-recaptcha-response' => 'required|captcha'
         ]);
         if(Auth::attempt($request->only(['email','password']))){
-            return redirect()->route('home');
+            return redirect()->route('home')->with('success', 'Login Success');
 
         }
-        return redirect()->route('login')->with(['error' => 'Wrong Email/Password!']);
+        return redirect()->route('login')->with('error', 'Wrong Email/Password!');
     }
 }

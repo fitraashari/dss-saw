@@ -19,7 +19,7 @@
   <link href="{{asset('sbadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
   <link href="{{asset('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-  @include('sweetalert::alert')
+  
 
 </head>
 
@@ -87,7 +87,7 @@
       </div>
     </div>
   </div>
-
+  @include('sweetalert::alert')
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('sbadmin2/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -97,9 +97,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{asset('sbadmin2/js/sb-admin-2.min.js')}}"></script>
+  
 
-  <!-- script tambahan sweet alert, bukan dari bawaan sb-admin-2 -->
-  <script src="{{asset('sbadmin2/js/swal.min.js')}}"></script>
   @stack('scripts')
 
 </body>

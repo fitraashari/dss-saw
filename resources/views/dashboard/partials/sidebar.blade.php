@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-      <a class="nav-link" href="/home">
+      <a class="nav-link" href="{{route('home')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
@@ -22,9 +22,9 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-      <a class="nav-link" href="/artikel">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Artikel</span></a>
+      <a class="nav-link" href="{{route('criteria')}}">
+        <i class="fas fa-fw fa-list"></i>
+        <span>Kriteria</span></a>
     </li>
 
     {{-- <!-- Heading -->
