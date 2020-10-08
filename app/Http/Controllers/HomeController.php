@@ -28,13 +28,14 @@ class HomeController extends Controller
     {
         $employe = Employe::get();
         $employe = count($employe);
-
+        $assessment_success =  count(Employe::has('assessment')->get());
+        $assessment_pending =  count(Employe::doesntHave('assessment')->get());
         $criteria=Criteria::get();
         $criteria = count($criteria);
 
         $sub_criteria=SubCriteria::get();
         $sub_criteria = count($sub_criteria);
 
-        return view('dashboard.admin.home',compact('criteria','sub_criteria','employe'));
+        return view('dashboard.admin.home',compact('criteria','sub_criteria','employe','assessment_success','assessment_pending'));
     }
 }

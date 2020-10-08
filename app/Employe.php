@@ -8,5 +8,8 @@ class Employe extends Model
 {
     //
     protected $guarded = [];
-    
+    public function assessment()
+    {
+        return $this->hasMany('App\Assessment');
+    }
 }

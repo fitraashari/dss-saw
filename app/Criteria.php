@@ -13,4 +13,8 @@ class Criteria extends Model
     {
         return $this->hasMany('App\SubCriteria');
     }
+    public function assessment()
+    {
+        return $this->hasMany('App\Assessment');
+    }
 }

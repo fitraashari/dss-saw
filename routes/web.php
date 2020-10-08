@@ -33,6 +33,7 @@ Route::middleware(['auth.basic'])->prefix('dashboard')->group(function(){
     Route::put('sub_criteria/{id}/update','SubCriteriaController@update')->name('sub_criteria.update');
 
     Route::get('assessment','AssessmentController@index')->name('assessment');
+    Route::post('assessment/store','AssessmentController@store')->name('assessment.store');
 
     Route::get('employe','EmployeController@index')->name('employe');
     Route::get('employe/create','EmployeController@create')->name('employe.create');
@@ -41,5 +42,5 @@ Route::middleware(['auth.basic'])->prefix('dashboard')->group(function(){
     Route::get('employe/{id}/edit','EmployeController@edit')->name('employe.edit');
     Route::put('employe/{id}/update','EmployeController@update')->name('employe.update');
     Route::delete('employe/{id}/delete','EmployeController@destroy')->name('employe.delete');
-
+    
 });
