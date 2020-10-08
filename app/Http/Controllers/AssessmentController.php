@@ -12,7 +12,6 @@ class AssessmentController extends Controller
     public function index(){
         $criterias = Criteria::orderBy('criteria_code','Asc')->with('sub_criteria')->get();
         $employes = Employe::orderBy('id','Asc')->with('assessment')->get(); 
-        // return $decoded;
         $arr = [];
         $score=[];
         $minmax =  Assessment::getMaxMin($criterias);
@@ -38,7 +37,6 @@ class AssessmentController extends Controller
                     }
                 }
             }
-            // dd($score);
             $arr[$index]['score']=array_sum($score[$index]);
         }
         foreach ($arr as $key => $row)
