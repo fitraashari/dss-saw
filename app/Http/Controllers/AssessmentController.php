@@ -7,6 +7,7 @@ use App\Assessment;
 use App\Criteria;
 use App\Employe;
 Use Alert;
+use PDF;
 class AssessmentController extends Controller
 {
     public function index(){
@@ -18,6 +19,13 @@ class AssessmentController extends Controller
         return view('dashboard.admin.assessment.index',compact('criterias','employes','arr'));
         
     }
+    public function export(){
+        $criterias = Criteria::orderBy('criteria_code','Asc')->with('sub_criteria')->get();
+        $arr = Assessment::dss_saw();
+        $pdf = PDF::loadview('dashboard.admin.assessment.rank',compact('criterias','arr'))->setPaper('a4', 'landscape');
+    	return $pdf->download('Employe Rank');
+    }
+
     public function store(Request $request){
         // return $request->all();
         request()->validate([

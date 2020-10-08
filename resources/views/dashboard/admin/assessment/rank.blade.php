@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="table-responsive">
 
-                <table class="table table-bordered" id="weight" width="100%" cellspacing="0">
+                <table class="table table-bordered" border="1" id="weight" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Rank.</th>
