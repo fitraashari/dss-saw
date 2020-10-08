@@ -32,7 +32,7 @@
                                 <td>{{$criteria->type}}</td>
                                 <td>{{$criteria->weight}}</td>
                                 <td>
-                                <a href="{{route('criteria.show',['id'=>$criteria->id])}}" class="btn btn-sm btn-primary"><i class="fas fa-th-list"></i></a>
+                                <a href="{{route('criteria.show',['id'=>$criteria->id])}}" class="btn btn-sm btn-primary"><i class="fas fa-code-branch"></i></a>
                                     <a href="/dashboard/criteria/{{$criteria->id}}/edit" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                     <form action="/dashboard/criteria/{{$criteria->id}}/delete" method="post" style="display:inline;">
                                         @csrf
