@@ -21,7 +21,7 @@ class Assessment extends Model
         return $arr;
     }
     public static function dss_saw(){
-        $criterias = Criteria::orderBy('criteria_code','Asc')->with('sub_criteria')->get();
+        $criterias = Criteria::orderBy('criteria_code','Asc')->has('assessment')->with('sub_criteria')->get();
         $employes = Employe::orderBy('id','Asc')->has('assessment')->with('assessment')->get(); 
         $arr = [];
         $score=[];

@@ -12,17 +12,18 @@ class AssessmentController extends Controller
 {
     public function index(){
         $criterias = Criteria::orderBy('criteria_code','Asc')->with('sub_criteria')->get();
+        $criteria_filtered = Criteria::orderBy('criteria_code','Asc')->has('assessment')->with('sub_criteria')->get();
         $employes = Employe::orderBy('id','Asc')->with('assessment')->get(); 
         $arr = Assessment::dss_saw();
         // return $arr;
         // return Assessment::getMaxMin($criterias);
-        return view('dashboard.admin.assessment.index',compact('criterias','employes','arr'));
+        return view('dashboard.admin.assessment.index',compact('criterias','employes','arr','criteria_filtered'));
         
     }
     public function export(){
-        $criterias = Criteria::orderBy('criteria_code','Asc')->with('sub_criteria')->get();
+        $criteria_filtered = Criteria::orderBy('criteria_code','Asc')->with('sub_criteria')->get();
         $arr = Assessment::dss_saw();
-        $pdf = PDF::loadview('dashboard.admin.assessment.rank',compact('criterias','arr'))->setPaper('a4', 'landscape');
+        $pdf = PDF::loadview('dashboard.admin.assessment.rank',compact('criteria_filtered','arr'))->setPaper('a4', 'landscape');
     	return $pdf->download('Employe Rank');
     }
 

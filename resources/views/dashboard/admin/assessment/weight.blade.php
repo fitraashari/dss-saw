@@ -11,7 +11,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Employe Name</th>
-                            @foreach ($criterias as $criteria)
+                            @foreach ($criteria_filtered as $criteria)
                         <th>{{$criteria->criteria_code}}<br>
                         ({{$criteria->name}})</th>
                             @endforeach
@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{$index+1}}</td>
                             <td>{{$employe->full_name}}</td>
-                            @foreach ($criterias as $criteria)
+                            @foreach ($criteria_filtered as $criteria)
                             @csrf
                             <td>
                              @foreach ($criteria->sub_criteria as $sub_criteria)

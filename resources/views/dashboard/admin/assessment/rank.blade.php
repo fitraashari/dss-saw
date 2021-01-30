@@ -11,7 +11,7 @@
                         <tr>
                             <th>Rank.</th>
                             <th>Employe Name</th>
-                            @foreach ($criterias as $criteria)
+                            @foreach ($criteria_filtered as $criteria)
                         <th>{{$criteria->criteria_code}}<br>
                         ({{$criteria->name}})</th>
                             @endforeach
