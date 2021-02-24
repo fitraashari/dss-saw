@@ -43,7 +43,7 @@ class LoginController extends Controller
         $this->validate($request,[
             'email'=>'required|email',
             'password'=>'required|string|min:6',
-            'g-recaptcha-response' => 'required|captcha'
+            // 'g-recaptcha-response' => 'required|captcha'
         ]);
         if(Auth::attempt($request->only(['email','password']))){
             return redirect()->route('home')->with('success', 'Login Success');
